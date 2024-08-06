@@ -1,0 +1,14 @@
+{
+  "name": "doubleshot-vue-nest-starter",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "dsr dev",
+    "build": "rimraf dist && dsr build",
+    "check:electron": "electron-builder install-app-deps",
+    "db": "typeorm-model-generator   --noConfig true -d ./packages/backend/db/db.sqlite3 -e sqlite -o ./packages/backend/entities"
+  },
+  "devDependencies": {
+    "@doubleshot/runner": "^0.0.11"
+  }
+}
