@@ -27,6 +27,7 @@ contextBridge.exposeInMainWorld(
       }
     },
     saveImageToFile: (image: string): Promise<any> => ipcRenderer.invoke("save-image", image),
+    signIn: (data: { username: string, password: string }): Promise<any> => ipcRenderer.invoke("signIn", data),
   },
 )
 

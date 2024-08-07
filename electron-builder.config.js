@@ -13,7 +13,7 @@ const config = {
     output: resolve('dist'),
   },
   electronDownload: {
-    mirror: 'https://npm.taobao.org/mirrors/electron/',
+    mirror: 'https://npmmirror.com/mirrors/electron/',
   },
   files: [
     resolve('packages/backend/package.json'),

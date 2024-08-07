@@ -1,4 +1,4 @@
-import { Controller } from '@nestjs/common'
+import { Controller, Ip } from '@nestjs/common'
 import { IpcHandle } from '@doubleshot/nest-electron'
 import { AppService } from './app.service'
 import { Payload } from '@nestjs/microservices'
@@ -18,4 +18,10 @@ export class AppController {
   saveImage(@Payload() image: string) {
     return this.appService.saveImageToFile(image)
   }
+
+  @IpcHandle('signIn')
+  signIn(@Payload() data: { username: string, password: string }) {
+    return this.appService.signIn(data)
+  }
 }
+

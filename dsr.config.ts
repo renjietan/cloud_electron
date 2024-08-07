@@ -8,7 +8,8 @@ export default defineConfig({
       prefixColor: 'blue',
       commands: {
         dev: 'npm run dev',
-        build: 'npm run build'
+        build: 'npm run build',
+        // install: 'npm install',
       }
     },
     {
@@ -20,9 +21,11 @@ export default defineConfig({
           command: 'npm run dev',
           killOthersWhenExit: true
         },
-        build: 'npm run build'
+        build: 'npm run build',
+        // install: 'npm install',
+        // 'sqlite3:rebuild': 'electron-rebuild -f -w sqlite3'
       }
-    }
+    },
   ],
   electronBuild: {
     projectDir: 'packages/backend',

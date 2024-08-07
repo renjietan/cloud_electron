@@ -6,6 +6,7 @@
     "dev": "dsr dev",
     "build": "rimraf dist && dsr build",
     "check:electron": "electron-builder install-app-deps",
+    "sqlite3:rebuild": "electron-rebuild",
     "db": "typeorm-model-generator   --noConfig true -d ./packages/backend/db/db.sqlite3 -e sqlite -o ./packages/backend/entities"
   },
   "devDependencies": {

@@ -57,6 +57,7 @@
 	import { Session } from '/@/utils/storage';
 	import { formatAxis } from '/@/utils/formatTime';
 	import { NextLoading } from '/@/utils/loading';
+	const { signIn } = window.electron;
 	// 定义变量内容
 	const { t } = useI18n();
 	const storesThemeConfig = useThemeConfig();
@@ -77,17 +78,22 @@
 
 	// 登录
 	const onSignIn = async () => {
-		state.loading.signIn = true;
-		Session.set('token', Math.random().toString(36).substr(0));
-		Cookies.set('userName', state.ruleForm.userName);
-		if (route.query?.redirect) {
-			router.push({
-				path: (route.query?.redirect ?? '' ) as string,
-				query: Object.keys(route.query?.params ?? []).length > 0 ? JSON.parse(route.query?.params) : '',
-			});
-		} else {
-			router.push('/');
-		}
+		// state.loading.signIn = true;
+		const u = await signIn({
+			username: state.ruleForm.userName,
+			password: state.ruleForm.password,
+		});
+		console.log(u);
+		// Session.set('token', Math.random().toString(36).substr(0));
+		// Cookies.set('userName', state.ruleForm.userName);
+		// if (route.query?.redirect) {
+		// 	router.push({
+		// 		path: (route.query?.redirect ?? '' ) as string,
+		// 		query: Object.keys(route.query?.params ?? []).length > 0 ? JSON.parse(route.query?.params) : '',
+		// 	});
+		// } else {
+		// 	router.push('/');
+		// }
 		// TODO(2023-03-16 11:24:56 谭人杰): 删除
 		// if (!themeConfig.value.isRequestRoutes) {
 		// 	// 前端控制路由，2、请注意执行顺序

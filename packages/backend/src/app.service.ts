@@ -2,11 +2,15 @@ import { Window } from '@doubleshot/nest-electron'
 import { Injectable } from '@nestjs/common'
 import { screen, dialog, BrowserWindow, shell } from 'electron'
 import fs from "fs"
+import { User } from '../entities/User'
+import { Repository } from 'typeorm'
+import { InjectRepository } from '@nestjs/typeorm'
 
 @Injectable()
 export class AppService {
   constructor(
     @Window() private readonly mainWin: BrowserWindow,
+    @InjectRepository(User) private readonly userRepository: Repository<User>
   ) {
     this.mainWin.webContents.setWindowOpenHandler(({ url }) => {
       shell.openExternal(url)
@@ -36,5 +40,12 @@ export class AppService {
     const buffer = Buffer.from(image.replace(/^data:image\/\w+;base64,/, ""), 'base64')
     fs.writeFileSync(filePath, buffer)
     return "success"
+  }
+
+  public async signIn(data: {username: string, password: string}) {
+    console.log('1231231');
+    
+    const user = this.userRepository.findOneBy(data)
+    return user
   }
 }

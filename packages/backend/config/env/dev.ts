@@ -16,12 +16,10 @@ export default {
   // },
   sqlite: {
     type: 'sqlite',
-    database: path.resolve(__dirname, 'src/main/db/db.sqlite3'),
+    database: path.join(__dirname, '../db/db.sqlite3'),
     synchronize: true,
     logging: false,
-    entities: [
-      path.resolve(__dirname, 'src/main/entities/*.ts'),
-    ],
+    entities: path.join(__dirname, '../entities/*.ts'),
     // "migrations": [
     //     "src/migration/**/*.ts"
     // ],
@@ -29,9 +27,7 @@ export default {
     //     "src/subscriber/**/*.ts"
     // ],
     cli: {
-      entitiesDir: 'src/main/entities',
-      // "migrationsDir": "src/migration",
-      // "subscribersDir": "src/subscriber"
+      entitiesDir: path.join(__dirname, '../db/db.sqlite3'),
     },
   },
 }

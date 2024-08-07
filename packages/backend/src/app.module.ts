@@ -7,6 +7,7 @@ import { AppService } from "./app.service";
 import { ConfigService } from "@nestjs/config";
 import { configModule } from '../config'
 import { TypeOrmModule } from '@nestjs/typeorm'
+import { User } from "../entities/User";
 @Module({
   imports: [
     ElectronModule.registerAsync({
@@ -39,9 +40,12 @@ import { TypeOrmModule } from '@nestjs/typeorm'
       imports: [configModule],
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => {
+        console.log('================', configService.get('sqlite'));
+        
         return configService.get('sqlite')
       },
     }),
+    TypeOrmModule.forFeature([ User ])
   ],
   controllers: [AppController],
   providers: [AppService],

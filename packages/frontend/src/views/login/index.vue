@@ -9,14 +9,15 @@
 				<div class="login-right-warp-mian">
 					<div class="login-right-warp-main-title">{{ getThemeConfig.globalTitle }}</div>
 					<div class="login-right-warp-main-form">
-						<el-tabs v-model="state.tabsActiveName">
+						<Account />
+						<!-- <el-tabs v-model="state.tabsActiveName">
 							<el-tab-pane label="用户名登录" name="account">
 								<Account />
 							</el-tab-pane>
 							<el-tab-pane label="手机号登录" name="mobile">
 								<Mobile />
 							</el-tab-pane>
-						</el-tabs>
+						</el-tabs> -->
 					</div>
 				</div>
 			</div>
