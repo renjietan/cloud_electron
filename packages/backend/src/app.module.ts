@@ -7,7 +7,6 @@ import { AppService } from "./app.service";
 import { ConfigService } from "@nestjs/config";
 import { configModule } from '../config'
 import { TypeOrmModule } from '@nestjs/typeorm'
-import { User } from "../entities/User.entity";
 @Module({
   imports: [
     ElectronModule.registerAsync({
@@ -36,14 +35,14 @@ import { User } from "../entities/User.entity";
         return { win };
       },
     }),
-    TypeOrmModule.forRootAsync({
-      imports: [configModule],
-      inject: [ConfigService],
-      useFactory: (configService: ConfigService) => {
-        console.log('================', configService.get('sqlite'));
-        return configService.get('sqlite')
-      },
-    }),
+    // TypeOrmModule.forRootAsync({
+    //   imports: [configModule],
+    //   inject: [ConfigService],
+    //   useFactory: (configService: ConfigService) => {
+    //     console.log('================', configService.get('sqlite'));
+    //     return configService.get('sqlite')
+    //   },
+    // }),
   ],
   controllers: [AppController],
   providers: [AppService],

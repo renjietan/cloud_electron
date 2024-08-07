@@ -16,7 +16,7 @@ export default {
   // },
   sqlite: {
     type: 'sqlite',
-    database: path.resolve(__dirname, '/db/db.sqlite3'),
+    database: path.resolve(__dirname, '../db/db.sqlite3'),
     synchronize: true,
     logging: false,
     entities:  [

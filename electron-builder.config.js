@@ -25,7 +25,18 @@ const config = {
       from: resolve('packages/frontend/dist'),
       to: 'frontend',
     },
-  ]
+  ],
+  extraFiles: [
+    {
+      from: resolve('packages/backend/db'),
+      to: 'backend/db',
+    }
+  ],
+  nsis: {
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true,
+    "perMachine": true
+  },
 }
 
 module.exports = config

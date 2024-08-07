@@ -43,8 +43,6 @@ export class AppService {
   }
 
   public async signIn(data: {username: string, password: string}) {
-    console.log('1231231');
-    
     // const user = this.userRepository.findOneBy(data)
     // return 'user'
     return 'success'
