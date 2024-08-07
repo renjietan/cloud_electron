@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "module": "CommonJS",
+    "module": "commonjs",
     "moduleResolution": "node",
     "strict": false,
     "jsx": "preserve",
@@ -17,6 +17,8 @@
     "skipLibCheck": true
   },
   "include": [
+    "config/**/*.ts",
+    "config/**/*.d.ts",
     "src/**/*.ts",
     "src/**/*.d.ts",
     "entities/**/*.ts",

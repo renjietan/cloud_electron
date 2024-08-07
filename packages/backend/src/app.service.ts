@@ -2,7 +2,7 @@ import { Window } from '@doubleshot/nest-electron'
 import { Injectable } from '@nestjs/common'
 import { screen, dialog, BrowserWindow, shell } from 'electron'
 import fs from "fs"
-import { User } from '../entities/User'
+// import { User } from '../entities/User.entity'
 import { Repository } from 'typeorm'
 import { InjectRepository } from '@nestjs/typeorm'
 
@@ -10,7 +10,7 @@ import { InjectRepository } from '@nestjs/typeorm'
 export class AppService {
   constructor(
     @Window() private readonly mainWin: BrowserWindow,
-    @InjectRepository(User) private readonly userRepository: Repository<User>
+    // @InjectRepository(User) private readonly userRepository: Repository<User>
   ) {
     this.mainWin.webContents.setWindowOpenHandler(({ url }) => {
       shell.openExternal(url)
@@ -45,7 +45,8 @@ export class AppService {
   public async signIn(data: {username: string, password: string}) {
     console.log('1231231');
     
-    const user = this.userRepository.findOneBy(data)
-    return user
+    // const user = this.userRepository.findOneBy(data)
+    // return 'user'
+    return 'success'
   }
 }

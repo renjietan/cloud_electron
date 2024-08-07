@@ -5,18 +5,18 @@
 - v10.1.0
 
 #### python版本
-- v3.8.10
+- v3.6.15
 
 #### 安装
 
 - {*} npm install -g @nestjs/cli@10.4.2
 - {*} npm install -g electron-rebuild@3.2.9
 - {*} npm install -g typeorm-model-generator@0.4.6
--     npm install -g node-gyp@10.2.0
--     npm install -g pnpm@9.6.0
--     npm install -g windows-build-tools
+- { } npm install -g node-gyp@10.2.0
+- { } npm install -g pnpm@9.6.0
+- { } npm install -g windows-build-tools
   <font color='red'>注意：安装 windows-build-tools，需要安装 c++编译环境</font>
-  <font color="red">注意：如果安装sqlite3</font>
+  <font color="red">注意：如果安装sqlite3,里面内置了node-gyp@8.4.1</font>
 
 #### 初始化
 
