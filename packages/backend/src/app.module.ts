@@ -1,12 +1,12 @@
 import { join } from "path";
 import { Module } from "@nestjs/common";
 import { ElectronModule } from "@doubleshot/nest-electron";
-import { BrowserWindow, app } from "electron";
+import { BrowserWindow, app, globalShortcut } from "electron";
 import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
 import { ConfigService } from "@nestjs/config";
-import { configModule } from '../config'
-import { TypeOrmModule } from '@nestjs/typeorm'
+import { configModule } from "../config";
+import { TypeOrmModule } from "@nestjs/typeorm";
 @Module({
   imports: [
     ElectronModule.registerAsync({
@@ -24,6 +24,15 @@ import { TypeOrmModule } from '@nestjs/typeorm'
 
         win.on("closed", () => {
           win.destroy();
+        });
+        win.on("ready-to-show", () => {
+          globalShortcut.register("F5", function () {
+            win.webContents.toggleDevTools();
+          });
+          globalShortcut.register("F4", function () {
+            win.webContents.reload();
+          });
+          win.show();
         });
 
         const URL = isDev

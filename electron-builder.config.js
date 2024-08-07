@@ -8,7 +8,7 @@ function resolve(path) {
  * @see https://www.electron.build/configuration/configuration
  */
 const config = {
-  productName: 'Task Plan Manger',
+  productName: 'TP',
   directories: {
     output: resolve('dist'),
   },
@@ -26,17 +26,17 @@ const config = {
       to: 'frontend',
     },
   ],
-  extraFiles: [
-    {
-      from: resolve('packages/backend/db'),
-      to: 'backend/db',
-    }
-  ],
-  nsis: {
-    "oneClick": false,
-    "allowToChangeInstallationDirectory": true,
-    "perMachine": true
-  },
+  // extraFiles: [
+  //   {
+  //     from: 'packages/backend/db/',
+  //     to: './resources/db',
+  //   }
+  // ],
+  // nsis: {
+  //   "oneClick": false,
+  //   "allowToChangeInstallationDirectory": true,
+  //   "perMachine": true
+  // },
 }
 
 module.exports = config
